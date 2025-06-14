@@ -34,7 +34,6 @@ const Contact = () => {
       icon: Phone,
       title: 'Телефон',
       value: '+7 (840) 123-456',
-      link: 'tel:+7840123456',
       color: 'bg-blue-500'
     },
     {
@@ -94,25 +93,33 @@ const Contact = () => {
               
               <div className="space-y-6 mb-8">
                 {contactInfo.map((info, index) => (
-                  <motion.a
+                  <motion.div
                     key={index}
-                    href={info.link}
-                    target={info.link.startsWith('http') ? '_blank' : undefined}
-                    rel={info.link.startsWith('http') ? 'noopener noreferrer' : undefined}
                     initial={{ opacity: 0, x: -20 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.6, delay: index * 0.1 }}
                     viewport={{ once: true }}
-                    className="flex items-center space-x-4 p-4 bg-gray-50 rounded-xl hover:bg-gray-100 transition-colors group"
+                    className="flex items-center space-x-4 p-4 bg-gray-50 rounded-xl hover:bg-gray-100 transition-colors"
                   >
-                    <div className={`w-12 h-12 ${info.color} rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform`}>
+                    <div className={`w-12 h-12 ${info.color} rounded-lg flex items-center justify-center`}>
                       <info.icon className="w-6 h-6 text-white" />
                     </div>
                     <div>
                       <h4 className="font-semibold text-gray-800">{info.title}</h4>
-                      <p className="text-gray-600">{info.value}</p>
+                      {info.link ? (
+                        <a
+                          href={info.link}
+                          target={info.link.startsWith('http') ? '_blank' : undefined}
+                          rel={info.link.startsWith('http') ? 'noopener noreferrer' : undefined}
+                          className="text-gray-600 hover:text-primary-500 transition-colors"
+                        >
+                          {info.value}
+                        </a>
+                      ) : (
+                        <p className="text-gray-600">{info.value}</p>
+                      )}
                     </div>
-                  </motion.a>
+                  </motion.div>
                 ))}
               </div>
 
