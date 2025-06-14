@@ -65,31 +65,33 @@ const Gallery = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl font-bold text-gray-800 mb-6">Галерея</h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-8">
+          <h2 className="text-3xl sm:text-4xl font-bold text-gray-800 mb-6">Галерея</h2>
+          <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto mb-8">
             Погрузитесь в атмосферу нашего отеля через фотографии
           </p>
 
           {/* Category Filter */}
-          <div className="flex items-center justify-center space-x-4 mb-12">
-            {categories.map((category) => (
-              <button
-                key={category}
-                onClick={() => setActiveCategory(category)}
-                className={`px-6 py-2 rounded-full font-medium transition-all duration-200 ${
-                  activeCategory === category
-                    ? 'bg-primary-500 text-white shadow-lg'
-                    : 'bg-white text-gray-600 hover:bg-primary-50 hover:text-primary-500'
-                }`}
-              >
-                {category}
-              </button>
-            ))}
+          <div className="mb-12 px-4">
+            <div className="flex items-center justify-start sm:justify-center space-x-2 sm:space-x-4 overflow-x-auto pb-2 scrollbar-hide">
+              {categories.map((category) => (
+                <button
+                  key={category}
+                  onClick={() => setActiveCategory(category)}
+                  className={`flex-shrink-0 px-4 sm:px-6 py-2 rounded-full font-medium transition-all duration-200 text-sm sm:text-base ${
+                    activeCategory === category
+                      ? 'bg-primary-500 text-white shadow-lg'
+                      : 'bg-white text-gray-600 hover:bg-primary-50 hover:text-primary-500'
+                  }`}
+                >
+                  {category}
+                </button>
+              ))}
+            </div>
           </div>
         </motion.div>
 
         {/* Image Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6">
           {filteredImages.map((image, index) => (
             <motion.div
               key={index}
@@ -107,7 +109,7 @@ const Gallery = () => {
                   className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors duration-300 flex items-end">
-                  <div className="p-4 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-y-2 group-hover:translate-y-0">
+                  <div className="p-3 sm:p-4 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-y-2 group-hover:translate-y-0">
                     <h3 className="font-semibold text-sm">{image.title}</h3>
                     <p className="text-xs text-gray-300">{image.category}</p>
                   </div>
@@ -124,7 +126,7 @@ const Gallery = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center"
+              className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4"
               onClick={() => setSelectedImage(null)}
             >
               <button
@@ -138,7 +140,7 @@ const Gallery = () => {
                 initial={{ scale: 0.8 }}
                 animate={{ scale: 1 }}
                 exit={{ scale: 0.8 }}
-                className="max-w-4xl max-h-[90vh] mx-4"
+                className="max-w-4xl max-h-[90vh] mx-auto"
                 onClick={(e) => e.stopPropagation()}
               >
                 <img
@@ -147,8 +149,8 @@ const Gallery = () => {
                   className="w-full h-full object-contain rounded-lg"
                 />
                 <div className="text-center mt-4 text-white">
-                  <h3 className="text-xl font-semibold">{filteredImages[selectedImage].title}</h3>
-                  <p className="text-gray-300">{filteredImages[selectedImage].category}</p>
+                  <h3 className="text-lg sm:text-xl font-semibold">{filteredImages[selectedImage].title}</h3>
+                  <p className="text-gray-300 text-sm sm:text-base">{filteredImages[selectedImage].category}</p>
                 </div>
               </motion.div>
             </motion.div>

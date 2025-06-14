@@ -1,3 +1,23 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Скрытие скроллбара для горизонтальной прокрутки */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Обеспечение правильного отступа для фиксированного хедера */
+html {
+  scroll-padding-top: 80px;
+}
+
+/* Предотвращение горизонтального скролла */
+body {
+  overflow-x: hidden;
+}
