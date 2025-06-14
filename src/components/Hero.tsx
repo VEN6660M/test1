@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowDown, Star, Award, Users } from 'lucide-react';
+import { Star, Award, Users } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const Hero = () => {
@@ -122,23 +122,6 @@ const Hero = () => {
               </div>
             ))}
           </motion.div>
-        </motion.div>
-
-        {/* Scroll Indicator */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.5 }}
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
-        >
-          <motion.button
-            onClick={scrollToRooms}
-            animate={{ y: [0, 10, 0] }}
-            transition={{ duration: 2, repeat: Infinity }}
-            className="text-gray-600 hover:text-primary-500 transition-colors"
-          >
-            <ArrowDown size={24} />
-          </motion.button>
         </motion.div>
       </div>
     </section>
