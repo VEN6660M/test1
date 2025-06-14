@@ -70,14 +70,14 @@ const Gallery = () => {
             Погрузитесь в атмосферу нашего отеля через фотографии
           </p>
 
-          {/* Category Filter */}
-          <div className="mb-12">
-            <div className="flex items-center justify-start sm:justify-center gap-2 sm:gap-4 overflow-x-auto pb-2 scrollbar-hide px-4 sm:px-0">
+          {/* Category Filter - скрыто на мобильных */}
+          <div className="hidden sm:block mb-12">
+            <div className="flex items-center justify-center gap-4">
               {categories.map((category) => (
                 <button
                   key={category}
                   onClick={() => setActiveCategory(category)}
-                  className={`flex-shrink-0 px-4 sm:px-6 py-2 rounded-full font-medium transition-all duration-200 text-sm sm:text-base whitespace-nowrap ${
+                  className={`px-6 py-2 rounded-full font-medium transition-all duration-200 ${
                     activeCategory === category
                       ? 'bg-primary-500 text-white shadow-lg'
                       : 'bg-white text-gray-600 hover:bg-primary-50 hover:text-primary-500'
