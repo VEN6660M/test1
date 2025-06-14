@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { X, ChevronLeft, ChevronRight } from 'lucide-react';
+import { X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const Gallery = () => {
@@ -54,18 +54,6 @@ const Gallery = () => {
   const filteredImages = activeCategory === 'Все' 
     ? images 
     : images.filter(img => img.category === activeCategory);
-
-  const nextImage = () => {
-    if (selectedImage !== null) {
-      setSelectedImage((selectedImage + 1) % filteredImages.length);
-    }
-  };
-
-  const prevImage = () => {
-    if (selectedImage !== null) {
-      setSelectedImage(selectedImage === 0 ? filteredImages.length - 1 : selectedImage - 1);
-    }
-  };
 
   return (
     <section id="gallery" className="py-20 bg-gray-50">
@@ -144,20 +132,6 @@ const Gallery = () => {
                 className="absolute top-4 right-4 text-white hover:text-gray-300 transition-colors z-10"
               >
                 <X size={32} />
-              </button>
-
-              <button
-                onClick={prevImage}
-                className="absolute left-4 text-white hover:text-gray-300 transition-colors z-10"
-              >
-                <ChevronLeft size={32} />
-              </button>
-
-              <button
-                onClick={nextImage}
-                className="absolute right-4 text-white hover:text-gray-300 transition-colors z-10"
-              >
-                <ChevronRight size={32} />
               </button>
 
               <motion.div
