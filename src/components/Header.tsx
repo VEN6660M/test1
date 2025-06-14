@@ -15,10 +15,35 @@ const Header = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Закрытие меню при изменении размера экрана
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 1024) {
+        setIsMenuOpen(false);
+      }
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  // Блокировка скролла при открытом меню
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [isMenuOpen]);
+
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
-      const headerHeight = 80; // Учитываем высоту хедера
+      const headerHeight = 80;
       const elementPosition = element.offsetTop - headerHeight;
       window.scrollTo({
         top: elementPosition,
@@ -98,7 +123,7 @@ const Header = () => {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="lg:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors z-50 relative"
+            className="lg:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors z-[60] relative"
           >
             {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
@@ -114,20 +139,20 @@ const Header = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="lg:hidden fixed inset-0 bg-black/50 z-40"
+              className="lg:hidden fixed inset-0 bg-black/50 z-[55]"
               onClick={() => setIsMenuOpen(false)}
             />
             
             {/* Menu Panel */}
             <motion.div
-              initial={{ opacity: 0, x: '100%' }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: '100%' }}
-              transition={{ type: 'tween', duration: 0.3 }}
-              className="lg:hidden fixed top-0 right-0 h-full w-80 max-w-[85vw] bg-white shadow-xl z-50"
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ type: 'tween', duration: 0.2 }}
+              className="lg:hidden absolute top-full left-0 right-0 bg-white/95 backdrop-blur-sm shadow-lg z-[55] border-t border-gray-200"
             >
-              <div className="p-6 pt-20">
-                <nav className="flex flex-col space-y-6">
+              <div className="container mx-auto px-4 py-6">
+                <nav className="flex flex-col space-y-4">
                   {menuItems.map((item) => (
                     <button
                       key={item.id}
@@ -138,16 +163,16 @@ const Header = () => {
                     </button>
                   ))}
                   
-                  <div className="pt-6 border-t border-gray-200 space-y-4">
+                  <div className="pt-4 border-t border-gray-200 space-y-3">
                     <a
                       href="tel:+7840123456"
                       className="flex items-center space-x-3 text-gray-700 hover:text-primary-500 transition-colors"
                     >
-                      <Phone size={20} />
+                      <Phone size={18} />
                       <span className="font-medium">+7 (840) 123-456</span>
                     </a>
                     <div className="flex items-center space-x-3 text-gray-600">
-                      <MapPin size={20} />
+                      <MapPin size={18} />
                       <span>Сухум, Абхазия</span>
                     </div>
                   </div>

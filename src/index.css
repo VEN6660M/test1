@@ -21,3 +21,26 @@ html {
 body {
   overflow-x: hidden;
 }
+
+/* Дополнительные стили для мобильной версии */
+@media (max-width: 640px) {
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+/* Улучшение производительности анимаций */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Стили для плавной прокрутки */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Исправление проблем с z-index */
+.fixed {
+  position: fixed;
+}
