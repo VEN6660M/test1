@@ -38,7 +38,7 @@ const Gallery = () => {
     },
     {
       src: 'https://media.discordapp.net/attachments/1247239991088648223/1383981456841379910/8617dceb-5817-450f-84fd-2f20ac25bcdf.jpg?ex=6850c4ac&is=684f732c&hm=3f124949952dfadea6a34014d336a7274b22e390d66710e1276cdcea9014b96a&=&format=webp&width=499&height=666',
-      title: 'Пляж рядом с отелем',
+      title: 'Толкан',
       category: 'Пляж'
     },
     {
