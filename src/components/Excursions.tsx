@@ -84,7 +84,7 @@ const Excursions = () => {
           >
             <div className="relative rounded-2xl overflow-hidden shadow-lg">
               <img
-                src="https://web.telegram.org/1870e017-480f-412d-84d6-cf336ad1c1f5?auto=compress&cs=tinysrgb&w=800"
+                src="https://media.discordapp.net/attachments/1247239991088648223/1383975677275144262/1870e017-480f-412d-84d6-cf336ad1c1f5.jpg?ex=6850bf4a&is=684f6dca&hm=c5a1a0ba09a5b1a80b031182efa594b0c7b6105aa48055fcb5e51993e706da7a&=&format=webp&width=998&height=666"
                 alt="Комфортабельный автомобиль для экскурсий"
                 className="w-full h-96 object-cover"
               />
