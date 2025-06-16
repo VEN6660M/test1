@@ -181,9 +181,9 @@ const Location = () => {
           className="bg-gradient-to-br from-primary-50 to-warm-50 dark:from-gray-800 dark:to-gray-700 rounded-2xl p-6 sm:p-8"
         >
           <div className="text-center mb-12">
-            <h3 className="text-3xl font-bold text-gray-800 dark:text-white mb-4">Наш транспорт</h3>
+            <h3 className="text-3xl font-bold text-gray-800 dark:text-white mb-4">Экскурсии по Абхазии</h3>
             <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-              Предоставляем комфортабельный трансфер на современных автомобилях
+              Откройте для себя красоту Абхазии с нашими увлекательными экскурсиями. Комфортабельный транспорт и опытные гиды сделают ваше путешествие незабываемым.
             </p>
           </div>
 
