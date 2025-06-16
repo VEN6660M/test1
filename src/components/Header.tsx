@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X, Phone, MapPin } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
-import ThemeToggle from './ThemeToggle';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -17,18 +16,17 @@ const Header = () => {
   }, []);
 
   const scrollToSection = (sectionId: string) => {
-    setTimeout(() => { // Добавляем небольшую задержку для гарантии работы
-      const element = document.getElementById(sectionId);
-      if (element) {
-        const headerHeight = document.querySelector('header')?.offsetHeight || 80;
-        const elementPosition = element.getBoundingClientRect().top + window.pageYOffset - headerHeight;
-        
-        window.scrollTo({
-          top: elementPosition,
-          behavior: 'smooth'
-        });
-      }
-    }, 100);
+    const element = document.getElementById(sectionId);
+    if (element) {
+      const headerHeight = document.querySelector('header')?.offsetHeight || 80;
+      const elementPosition = element.offsetTop - headerHeight;
+      
+      window.scrollTo({
+        top: elementPosition,
+        behavior: 'smooth'
+      });
+      setIsMenuOpen(false);
+    }
   };
 
   const menuItems = [
@@ -42,11 +40,12 @@ const Header = () => {
   return (
     <>
       <style jsx global>{`
-        #hero, #gallery, #transport, #location, #contact {
-          scroll-margin-top: 80px;
-        }
         #hero {
+          scroll-margin-top: 80px;
           padding-top: 80px;
+        }
+        #gallery, #transport, #location, #contact {
+          scroll-margin-top: 80px;
         }
       `}</style>
 
@@ -55,7 +54,7 @@ const Header = () => {
         animate={{ y: 0 }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           isScrolled
-            ? 'bg-white/95 dark:bg-gray-900/95 backdrop-blur-sm shadow-lg'
+            ? 'bg-white/95 backdrop-blur-sm shadow-lg'
             : 'bg-transparent'
         }`}
       >
@@ -66,14 +65,14 @@ const Header = () => {
               whileHover={{ scale: 1.05 }}
               className="flex items-center space-x-2 sm:space-x-3 flex-shrink-0 min-w-0"
             >
-              <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br from-primary-400 to-primary-600 rounded-lg flex items-center justify-center flex-shrink-0">
+              <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg flex items-center justify-center flex-shrink-0">
                 <span className="text-white font-bold text-sm sm:text-lg">AH</span>
               </div>
               <div className="min-w-0">
-                <h1 className="text-sm sm:text-lg lg:text-xl font-bold text-gray-800 dark:text-white truncate">
+                <h1 className="text-sm sm:text-lg lg:text-xl font-bold text-gray-800 truncate">
                   Абхазия Отели
                 </h1>
-                <p className="text-xs text-gray-600 dark:text-gray-400 hidden sm:block truncate">
+                <p className="text-xs text-gray-600 hidden sm:block truncate">
                   Райский отдых у моря
                 </p>
               </div>
@@ -85,42 +84,39 @@ const Header = () => {
                 <button
                   key={item.id}
                   onClick={() => scrollToSection(item.id)}
-                  className="text-gray-700 dark:text-gray-300 hover:text-primary-500 dark:hover:text-primary-400 font-medium transition-colors duration-200 relative group whitespace-nowrap"
+                  className="text-gray-700 hover:text-blue-500 font-medium transition-colors duration-200 relative group whitespace-nowrap"
                 >
                   {item.label}
-                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary-500 transition-all duration-200 group-hover:w-full"></span>
+                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-500 transition-all duration-200 group-hover:w-full"></span>
                 </button>
               ))}
             </nav>
 
             {/* Правая часть */}
-            <div className="flex items-center space-x-2 sm:space-x-4">
+            <div className="flex items-center space-x-4">
               {/* Контакты (десктоп) */}
               <div className="hidden xl:flex items-center space-x-4">
-                <div className="flex items-center space-x-2 text-gray-700 dark:text-gray-300">
+                <div className="flex items-center space-x-2 text-gray-700">
                   <Phone size={16} />
                   <span className="text-sm font-medium whitespace-nowrap">+7 (840) 123-456</span>
                 </div>
-                <div className="w-px h-6 bg-gray-300 dark:bg-gray-600"></div>
-                <div className="flex items-center space-x-1 text-gray-600 dark:text-gray-400">
+                <div className="w-px h-6 bg-gray-300"></div>
+                <div className="flex items-center space-x-1 text-gray-600">
                   <MapPin size={14} />
                   <span className="text-sm whitespace-nowrap">Сухум, Абхазия</span>
                 </div>
               </div>
 
-              {/* Переключатель темы */}
-              <ThemeToggle />
-
               {/* Кнопка мобильного меню */}
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className="lg:hidden p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors flex-shrink-0"
+                className="lg:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors flex-shrink-0"
                 aria-label="Меню"
               >
                 {isMenuOpen ? (
-                  <X size={20} className="text-gray-800 dark:text-white" />
+                  <X size={20} className="text-gray-800" />
                 ) : (
-                  <Menu size={20} className="text-gray-800 dark:text-white" />
+                  <Menu size={20} className="text-gray-800" />
                 )}
               </button>
             </div>
@@ -135,28 +131,25 @@ const Header = () => {
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.3 }}
-              className="lg:hidden bg-white/95 dark:bg-gray-900/95 backdrop-blur-sm border-t dark:border-gray-700 overflow-hidden"
+              className="lg:hidden bg-white/95 backdrop-blur-sm border-t border-gray-200 overflow-hidden"
             >
               <div className="container mx-auto px-4 py-4">
                 <nav className="flex flex-col space-y-4">
                   {menuItems.map((item) => (
                     <button
                       key={item.id}
-                      onClick={() => {
-                        scrollToSection(item.id);
-                        setIsMenuOpen(false);
-                      }}
-                      className="text-left text-gray-700 dark:text-gray-300 hover:text-primary-500 dark:hover:text-primary-400 font-medium py-2 transition-colors"
+                      onClick={() => scrollToSection(item.id)}
+                      className="text-left text-gray-700 hover:text-blue-500 font-medium py-2 transition-colors"
                     >
                       {item.label}
                     </button>
                   ))}
-                  <div className="pt-4 border-t border-gray-200 dark:border-gray-700">
-                    <div className="flex items-center space-x-2 text-gray-700 dark:text-gray-300 mb-2">
+                  <div className="pt-4 border-t border-gray-200">
+                    <div className="flex items-center space-x-2 text-gray-700 mb-2">
                       <Phone size={16} />
                       <span>+7 (840) 123-456</span>
                     </div>
-                    <div className="flex items-center space-x-2 text-gray-600 dark:text-gray-400">
+                    <div className="flex items-center space-x-2 text-gray-600">
                       <MapPin size={16} />
                       <span>Сухум, Абхазия</span>
                     </div>
