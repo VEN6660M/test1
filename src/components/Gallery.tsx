@@ -7,42 +7,42 @@ const Gallery = () => {
 
   const images = [
     {
-      src: 'https://images.pexels.com/photos/258154/pexels-photo-258154.jpeg?auto=compress&cs=tinysrgb&w=800',
+      src: 'https://media.discordapp.net/attachments/1247239991088648223/1383981455264186420/6d9f9a7f-7597-4d5c-a342-a33ac0cae7ef.jpg?ex=6850c4ac&is=684f732c&hm=feb7502219a27722a8d63a835a92396da8bc7ded511a8138d20b2c0cc72f3325&=&format=webp&width=888&height=666',
       title: 'Вид на море с террасы',
       category: 'Виды'
     },
     {
-      src: 'https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=800',
+      src: 'https://media.discordapp.net/attachments/1247239991088648223/1383981454525988894/46bd7a41-57ef-450c-b569-a5a9aade5432.jpg?ex=6850c4ab&is=684f732b&hm=55542f390452b52f8d4d17def48315f1fcbc5347741154e8d1b8291bb5537ec0&=&format=webp&width=888&height=666',
       title: 'Уютный номер люкс',
       category: 'Номера'
     },
     {
-      src: 'https://images.pexels.com/photos/1134176/pexels-photo-1134176.jpeg?auto=compress&cs=tinysrgb&w=800',
+      src: 'https://media.discordapp.net/attachments/1247239991088648223/1383981455805255832/2d21337a-442f-42c9-b484-8a563e3455ff.jpg?ex=6850c4ac&is=684f732c&hm=2cdf377f0bc21e2dda62bc8198db78ac182aac96e4d6a9eb05db9ff1fdbcbdb3&=&format=webp&width=888&height=666',
       title: 'Ресторан с панорамным видом',
       category: 'Ресторан'
     },
     {
-      src: 'https://images.pexels.com/photos/261102/pexels-photo-261102.jpeg?auto=compress&cs=tinysrgb&w=800',
+      src: 'https://media.discordapp.net/attachments/1247239991088648223/1383981456124149931/dac3849f-9440-4af8-93e0-9ffb148599c8.jpg?ex=6850c4ac&is=684f732c&hm=9347c4fe1794de6e51fa9b3de5ea74214bd3d296d756c22c718db9db68ba209b&=&format=webp&width=499&height=666',
       title: 'Бассейн на крыше',
       category: 'Бассейн'
     },
     {
-      src: 'https://images.pexels.com/photos/1579253/pexels-photo-1579253.jpeg?auto=compress&cs=tinysrgb&w=800',
+      src: 'https://media.discordapp.net/attachments/1247239991088648223/1383981456367288380/58d7f238-1049-425c-ab34-f821e16d3c6b.jpg?ex=6850c4ac&is=684f732c&hm=9c798bfda8614e6a49e429c009e76a55f1fe1bc69fa6bf4f1ffb95b50caa578f&=&format=webp&width=888&height=666',
       title: 'Спальня с видом на горы',
       category: 'Номера'
     },
     {
-      src: 'https://images.pexels.com/photos/2869215/pexels-photo-2869215.jpeg?auto=compress&cs=tinysrgb&w=800',
+      src: 'https://media.discordapp.net/attachments/1247239991088648223/1383981456598106254/6a61d3af-07d3-4ba8-afef-3b87f287703d.jpg?ex=6850c4ac&is=684f732c&hm=fa2099a51ce6812c223413b954955f50769c227dab7d29e2023c23e989a5e5d8&=&format=webp&width=888&height=666',
       title: 'Семейный номер',
       category: 'Номера'
     },
     {
-      src: 'https://images.pexels.com/photos/1838554/pexels-photo-1838554.jpeg?auto=compress&cs=tinysrgb&w=800',
+      src: 'https://media.discordapp.net/attachments/1247239991088648223/1383981456841379910/8617dceb-5817-450f-84fd-2f20ac25bcdf.jpg?ex=6850c4ac&is=684f732c&hm=3f124949952dfadea6a34014d336a7274b22e390d66710e1276cdcea9014b96a&=&format=webp&width=499&height=666',
       title: 'Пляж рядом с отелем',
       category: 'Пляж'
     },
     {
-      src: 'https://images.pexels.com/photos/271618/pexels-photo-271618.jpeg?auto=compress&cs=tinysrgb&w=800',
+      src: 'https://media.discordapp.net/attachments/1247239991088648223/1383981457155821568/fae57783-51b3-4561-8b20-4e4e32417851.jpg?ex=6850c4ac&is=684f732c&hm=777d57b9c7a75ab8855910663c3bc8849080112a893b6411e3534f413edc2ecc&=&format=webp&width=499&height=666',
       title: 'Стандартный номер',
       category: 'Номера'
     }
