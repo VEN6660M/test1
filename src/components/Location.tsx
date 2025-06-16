@@ -60,7 +60,7 @@ const Location = () => {
   ];
 
   return (
-    <section id="location" className="py-20 bg-white dark:bg-gray-900 transition-colors duration-300">
+    <section id="location" className="py-20 bg-white">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -69,13 +69,13 @@ const Location = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl font-bold text-gray-800 dark:text-white mb-6">Расположение и транспорт</h2>
-          <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+          <h2 className="text-4xl font-bold text-gray-800 mb-6">Расположение и транспорт</h2>
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
             Идеальное местоположение в самом сердце Сухума с комфортабельным трансфером
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 mb-16">
+        <div className="grid lg:grid-cols-2 gap-12 mb-16">
           {/* Map */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -84,9 +84,9 @@ const Location = () => {
             viewport={{ once: true }}
             className="order-2 lg:order-1"
           >
-            <div className="bg-gray-100 dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg h-80 sm:h-96 mb-6">
+            <div className="bg-gray-100 rounded-2xl overflow-hidden shadow-lg h-96 mb-6">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2905.0701970313257!2d40.273567012254766!3d43.2709051710024!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40f58af11de9e9f7%3A0x509e8988d9f2f9a4!2s153%20Adygaa%20St%2C%20Gagra!5e0!3m2!1sru!2sus!4v1750037442212!5m2!1sru!2sus"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11904.41331978369!2d40.994739299999995!3d42.8746212!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x405a5ed6b8c2f7b1%3A0x8b5c6e6fede79c7e!2z0KHRg9GF0YPQvCwg0JDQsdGF0LDQt9C40Y8!5e0!3m2!1sru!2sru!4v1635789012345"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
@@ -98,12 +98,12 @@ const Location = () => {
             </div>
 
             {/* Address */}
-            <div className="p-6 bg-primary-50 dark:bg-gray-800 rounded-xl">
+            <div className="p-6 bg-primary-50 rounded-xl">
               <div className="flex items-start space-x-3">
                 <MapPin className="w-6 h-6 text-primary-500 mt-1" />
                 <div>
-                  <h3 className="font-semibold text-gray-800 dark:text-white mb-2">Наш адрес</h3>
-                  <p className="text-gray-600 dark:text-gray-300">
+                  <h3 className="font-semibold text-gray-800 mb-2">Наш адрес</h3>
+                  <p className="text-gray-600">
                     ул. Агумаа, 12<br />
                     г. Сухум, Абхазия<br />
                     384900
@@ -123,7 +123,7 @@ const Location = () => {
           >
             {/* Transport Options */}
             <div className="mb-8">
-              <h3 className="text-2xl font-bold text-gray-800 dark:text-white mb-6">Как добраться</h3>
+              <h3 className="text-2xl font-bold text-gray-800 mb-6">Как добраться</h3>
               <div className="space-y-4">
                 {transportOptions.map((option, index) => (
                   <motion.div
@@ -132,14 +132,14 @@ const Location = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: index * 0.1 }}
                     viewport={{ once: true }}
-                    className="flex items-center space-x-4 p-4 bg-gray-50 dark:bg-gray-800 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+                    className="flex items-center space-x-4 p-4 bg-gray-50 rounded-xl hover:bg-gray-100 transition-colors"
                   >
                     <div className={`w-12 h-12 ${option.color} rounded-lg flex items-center justify-center`}>
                       <option.icon className="w-6 h-6 text-white" />
                     </div>
                     <div className="flex-1">
-                      <h4 className="font-semibold text-gray-800 dark:text-white">{option.title}</h4>
-                      <p className="text-gray-600 dark:text-gray-300 text-sm">{option.description}</p>
+                      <h4 className="font-semibold text-gray-800">{option.title}</h4>
+                      <p className="text-gray-600 text-sm">{option.description}</p>
                     </div>
                     <div className="flex items-center space-x-1 text-primary-500">
                       <Clock size={16} />
@@ -152,7 +152,7 @@ const Location = () => {
 
             {/* Nearby Attractions */}
             <div>
-              <h3 className="text-2xl font-bold text-gray-800 dark:text-white mb-6">Рядом с отелем</h3>
+              <h3 className="text-2xl font-bold text-gray-800 mb-6">Рядом с отелем</h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {nearbyAttractions.map((attraction, index) => (
                   <motion.div
@@ -161,9 +161,9 @@ const Location = () => {
                     whileInView={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.5, delay: index * 0.05 }}
                     viewport={{ once: true }}
-                    className="flex items-center justify-between p-3 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg hover:shadow-md transition-shadow"
+                    className="flex items-center justify-between p-3 bg-white border border-gray-200 rounded-lg hover:shadow-md transition-shadow"
                   >
-                    <span className="text-gray-800 dark:text-white font-medium text-sm">{attraction.name}</span>
+                    <span className="text-gray-800 font-medium text-sm">{attraction.name}</span>
                     <span className="text-primary-500 text-xs font-medium">{attraction.distance}</span>
                   </motion.div>
                 ))}
@@ -178,16 +178,16 @@ const Location = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="bg-gradient-to-br from-primary-50 to-warm-50 dark:from-gray-800 dark:to-gray-700 rounded-2xl p-6 sm:p-8"
+          className="bg-gradient-to-br from-primary-50 to-warm-50 rounded-2xl p-8"
         >
           <div className="text-center mb-12">
-            <h3 className="text-3xl font-bold text-gray-800 dark:text-white mb-4">Экскурсии по Абхазии</h3>
-            <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-              Откройте для себя красоту Абхазии с нашими увлекательными экскурсиями. Комфортабельный транспорт и опытные гиды сделают ваше путешествие незабываемым.
+            <h3 className="text-3xl font-bold text-gray-800 mb-4">Наш транспорт</h3>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              Предоставляем комфортабельный трансфер и экскурсионные поездки на современных автомобилях
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Car Image */}
             <motion.div
               initial={{ opacity: 0, x: -30 }}
@@ -197,15 +197,15 @@ const Location = () => {
             >
               <div className="relative rounded-2xl overflow-hidden shadow-lg">
                 <img
-                  src="https://media.discordapp.net/attachments/1247239991088648223/1383975677275144262/1870e017-480f-412d-84d6-cf336ad1c1f5.jpg?ex=6850bf4a&is=684f6dca&hm=c5a1a0ba09a5b1a80b031182efa594b0c7b6105aa48055fcb5e51993e706da7a&=&format=webp&width=998&height=666"
-                  alt="Комфортабельный автомобиль для трансфера"
-                  className="w-full h-64 sm:h-80 object-cover"
+                  src="https://images.pexels.com/photos/116675/pexels-photo-116675.jpeg?auto=compress&cs=tinysrgb&w=800"
+                  alt="Комфортабельный автомобиль"
+                  className="w-full h-80 object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end">
                   <div className="p-6 text-white">
-                    <h4 className="text-xl font-bold mb-2">Комфортабельный транспорт</h4>
+                    <h4 className="text-xl font-bold mb-2">Mercedes-Benz Sprinter</h4>
                     <p className="text-sm opacity-90">
-                      Современные автомобили с кондиционером для вашего комфорта
+                      Комфортабельный микроавтобус для групповых поездок и экскурсий
                     </p>
                   </div>
                 </div>
@@ -229,21 +229,21 @@ const Location = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: index * 0.1 }}
                     viewport={{ once: true }}
-                    className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow"
+                    className="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow"
                   >
-                    <div className="w-12 h-12 bg-primary-100 dark:bg-primary-900 rounded-lg flex items-center justify-center mb-4">
+                    <div className="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center mb-4">
                       <feature.icon className="w-6 h-6 text-primary-500" />
                     </div>
-                    <h4 className="font-semibold text-gray-800 dark:text-white mb-2">{feature.title}</h4>
-                    <p className="text-sm text-gray-600 dark:text-gray-300">{feature.description}</p>
+                    <h4 className="font-semibold text-gray-800 mb-2">{feature.title}</h4>
+                    <p className="text-sm text-gray-600">{feature.description}</p>
                   </motion.div>
                 ))}
               </div>
 
               {/* Services List */}
-              <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md">
-                <h4 className="font-semibold text-gray-800 dark:text-white mb-4">Услуги трансфера:</h4>
-                <ul className="space-y-2 text-sm text-gray-600 dark:text-gray-300">
+              <div className="bg-white p-6 rounded-xl shadow-md">
+                <h4 className="font-semibold text-gray-800 mb-4">Услуги трансфера:</h4>
+                <ul className="space-y-2 text-sm text-gray-600">
                   <li className="flex items-center space-x-2">
                     <div className="w-2 h-2 bg-primary-500 rounded-full"></div>
                     <span>Встреча в аэропорту с табличкой</span>
@@ -269,3 +269,5 @@ const Location = () => {
     </section>
   );
 };
+
+export default Location;
