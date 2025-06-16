@@ -36,7 +36,7 @@ const Header = () => {
       animate={{ y: 0 }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? 'bg-white/95 backdrop-blur-sm shadow-lg'
+          ? 'bg-white/95 dark:bg-gray-900/95 backdrop-blur-sm shadow-lg'
           : 'bg-transparent'
       }`}
     >
@@ -51,8 +51,8 @@ const Header = () => {
               <span className="text-white font-bold text-lg">AH</span>
             </div>
             <div className="min-w-0">
-              <h1 className="text-lg sm:text-xl font-bold text-gray-800 truncate">Абхазия Отели</h1>
-              <p className="text-xs text-gray-600 hidden sm:block">Райский отдых у моря</p>
+              <h1 className="text-lg sm:text-xl font-bold text-gray-800 dark:text-white truncate">Абхазия Отели</h1>
+              <p className="text-xs text-gray-600 dark:text-gray-400 hidden sm:block">Райский отдых у моря</p>
             </div>
           </motion.div>
 
@@ -62,7 +62,7 @@ const Header = () => {
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
-                className="text-gray-700 hover:text-primary-500 font-medium transition-colors duration-200 relative group whitespace-nowrap"
+                className="text-gray-700 dark:text-gray-300 hover:text-primary-500 dark:hover:text-primary-400 font-medium transition-colors duration-200 relative group whitespace-nowrap"
               >
                 {item.label}
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary-500 transition-all duration-200 group-hover:w-full"></span>
@@ -72,12 +72,12 @@ const Header = () => {
 
           {/* Contact Info - Desktop */}
           <div className="hidden xl:flex items-center space-x-4 flex-shrink-0">
-            <div className="flex items-center space-x-2 text-gray-700">
+            <div className="flex items-center space-x-2 text-gray-700 dark:text-gray-300">
               <Phone size={16} />
               <span className="text-sm font-medium whitespace-nowrap">+7 (999) 360-10-89</span>
             </div>
-            <div className="w-px h-6 bg-gray-300"></div>
-            <div className="flex items-center space-x-1 text-gray-600">
+            <div className="w-px h-6 bg-gray-300 dark:bg-gray-600"></div>
+            <div className="flex items-center space-x-1 text-gray-600 dark:text-gray-400">
               <MapPin size={14} />
               <span className="text-sm whitespace-nowrap">Сухум, Абхазия</span>
             </div>
@@ -86,7 +86,7 @@ const Header = () => {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="lg:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors flex-shrink-0"
+            className="lg:hidden p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors flex-shrink-0 text-gray-800 dark:text-white"
           >
             {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
@@ -100,7 +100,7 @@ const Header = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="lg:hidden bg-white/95 backdrop-blur-sm border-t"
+            className="lg:hidden bg-white/95 dark:bg-gray-900/95 backdrop-blur-sm border-t border-gray-200 dark:border-gray-700"
           >
             <div className="container mx-auto px-4 py-4">
               <nav className="flex flex-col space-y-4">
@@ -108,17 +108,17 @@ const Header = () => {
                   <button
                     key={item.id}
                     onClick={() => scrollToSection(item.id)}
-                    className="text-left text-gray-700 hover:text-primary-500 font-medium py-2 transition-colors"
+                    className="text-left text-gray-700 dark:text-gray-300 hover:text-primary-500 dark:hover:text-primary-400 font-medium py-2 transition-colors"
                   >
                     {item.label}
                   </button>
                 ))}
-                <div className="pt-4 border-t border-gray-200">
-                  <div className="flex items-center space-x-2 text-gray-700 mb-2">
+                <div className="pt-4 border-t border-gray-200 dark:border-gray-700">
+                  <div className="flex items-center space-x-2 text-gray-700 dark:text-gray-300 mb-2">
                     <Phone size={16} />
                     <span>+7 (999) 360-10-89</span>
                   </div>
-                  <div className="flex items-center space-x-2 text-gray-600">
+                  <div className="flex items-center space-x-2 text-gray-600 dark:text-gray-400">
                     <MapPin size={16} />
                     <span>Сухум, Абхазия</span>
                   </div>

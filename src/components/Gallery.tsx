@@ -49,7 +49,7 @@ const Gallery = () => {
   ];
 
   return (
-    <section id="gallery" className="py-20 bg-gray-50">
+    <section id="gallery" className="py-20 bg-gray-50 dark:bg-gray-800 transition-colors duration-300">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -58,14 +58,14 @@ const Gallery = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl font-bold text-gray-800 mb-6">Галерея</h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+          <h2 className="text-4xl font-bold text-gray-800 dark:text-white mb-6">Галерея</h2>
+          <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
             Погрузитесь в атмосферу нашего отеля через фотографии
           </p>
         </motion.div>
 
         {/* Image Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6">
           {images.map((image, index) => (
             <motion.div
               key={index}
@@ -83,7 +83,7 @@ const Gallery = () => {
                   className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors duration-300 flex items-end">
-                  <div className="p-4 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-y-2 group-hover:translate-y-0">
+                  <div className="p-3 sm:p-4 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-y-2 group-hover:translate-y-0">
                     <h3 className="font-semibold text-sm">{image.title}</h3>
                     <p className="text-xs text-gray-300">{image.category}</p>
                   </div>
@@ -100,7 +100,7 @@ const Gallery = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center"
+              className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4"
               onClick={() => setSelectedImage(null)}
             >
               <button
@@ -114,7 +114,7 @@ const Gallery = () => {
                 initial={{ scale: 0.8 }}
                 animate={{ scale: 1 }}
                 exit={{ scale: 0.8 }}
-                className="max-w-4xl max-h-[90vh] mx-4"
+                className="max-w-4xl max-h-[90vh] mx-auto"
                 onClick={(e) => e.stopPropagation()}
               >
                 <img

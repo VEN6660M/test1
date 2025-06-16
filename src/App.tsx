@@ -6,6 +6,7 @@ import Location from './components/Location';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
+import ThemeToggle from './components/ThemeToggle';
 
 function App() {
   useEffect(() => {
@@ -31,7 +32,7 @@ function App() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white dark:bg-gray-900 transition-colors duration-300">
       <Header />
       <main>
         <Hero />
@@ -41,6 +42,7 @@ function App() {
       </main>
       <Footer />
       <ScrollToTop />
+      <ThemeToggle />
     </div>
   );
 }

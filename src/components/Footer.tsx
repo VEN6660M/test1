@@ -28,7 +28,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-gray-900 text-white">
+    <footer className="bg-gray-900 dark:bg-black text-white transition-colors duration-300">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company Info */}
@@ -130,7 +130,7 @@ const Footer = () => {
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.6, delay: 0.4 }}
           viewport={{ once: true }}
-          className="border-t border-gray-800 mt-12 pt-8"
+          className="border-t border-gray-800 dark:border-gray-700 mt-12 pt-8"
         >
           <div className="flex flex-col md:flex-row items-center justify-between">
             <p className="text-gray-400 text-sm mb-4 md:mb-0">

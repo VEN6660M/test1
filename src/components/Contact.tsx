@@ -64,7 +64,7 @@ const Contact = () => {
   ];
 
   return (
-    <section id="contact" className="py-20 bg-gradient-to-br from-primary-50 to-warm-50">
+    <section id="contact" className="py-20 bg-gradient-to-br from-primary-50 to-warm-50 dark:from-gray-800 dark:to-gray-700 transition-colors duration-300">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -73,13 +73,13 @@ const Contact = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl font-bold text-gray-800 mb-6">Свяжитесь с нами</h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+          <h2 className="text-4xl font-bold text-gray-800 dark:text-white mb-6">Свяжитесь с нами</h2>
+          <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
             Готовы ответить на все ваши вопросы и помочь забронировать лучший номер
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-12">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">
           {/* Contact Information */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -87,8 +87,8 @@ const Contact = () => {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <div className="bg-white rounded-2xl shadow-lg p-8">
-              <h3 className="text-2xl font-bold text-gray-800 mb-8">Контактная информация</h3>
+            <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6 sm:p-8">
+              <h3 className="text-2xl font-bold text-gray-800 dark:text-white mb-8">Контактная информация</h3>
               
               <div className="space-y-6 mb-8">
                 {contactInfo.map((info, index) => (
@@ -98,24 +98,24 @@ const Contact = () => {
                     whileInView={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.6, delay: index * 0.1 }}
                     viewport={{ once: true }}
-                    className="flex items-center space-x-4 p-4 bg-gray-50 rounded-xl hover:bg-gray-100 transition-colors"
+                    className="flex items-center space-x-4 p-4 bg-gray-50 dark:bg-gray-700 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-600 transition-colors"
                   >
                     <div className={`w-12 h-12 ${info.color} rounded-lg flex items-center justify-center`}>
                       <info.icon className="w-6 h-6 text-white" />
                     </div>
                     <div>
-                      <h4 className="font-semibold text-gray-800">{info.title}</h4>
+                      <h4 className="font-semibold text-gray-800 dark:text-white">{info.title}</h4>
                       {info.link ? (
                         <a
                           href={info.link}
                           target={info.link.startsWith('http') ? '_blank' : undefined}
                           rel={info.link.startsWith('http') ? 'noopener noreferrer' : undefined}
-                          className="text-gray-600 hover:text-primary-500 transition-colors"
+                          className="text-gray-600 dark:text-gray-300 hover:text-primary-500 transition-colors"
                         >
                           {info.value}
                         </a>
                       ) : (
-                        <p className="text-gray-600">{info.value}</p>
+                        <p className="text-gray-600 dark:text-gray-300">{info.value}</p>
                       )}
                     </div>
                   </motion.div>
@@ -123,16 +123,16 @@ const Contact = () => {
               </div>
 
               {/* Working Hours */}
-              <div className="border-t border-gray-200 pt-8">
+              <div className="border-t border-gray-200 dark:border-gray-600 pt-8">
                 <div className="flex items-center space-x-3 mb-4">
                   <Clock className="w-6 h-6 text-primary-500" />
-                  <h4 className="text-lg font-semibold text-gray-800">Часы работы</h4>
+                  <h4 className="text-lg font-semibold text-gray-800 dark:text-white">Часы работы</h4>
                 </div>
                 <div className="space-y-2">
                   {workingHours.map((schedule, index) => (
                     <div key={index} className="flex justify-between items-center">
-                      <span className="text-gray-600">{schedule.day}</span>
-                      <span className="font-medium text-gray-800">{schedule.time}</span>
+                      <span className="text-gray-600 dark:text-gray-300 text-sm sm:text-base">{schedule.day}</span>
+                      <span className="font-medium text-gray-800 dark:text-white text-sm sm:text-base">{schedule.time}</span>
                     </div>
                   ))}
                 </div>
@@ -147,12 +147,12 @@ const Contact = () => {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <div className="bg-white rounded-2xl shadow-lg p-8">
-              <h3 className="text-2xl font-bold text-gray-800 mb-8">Напишите нам</h3>
+            <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6 sm:p-8">
+              <h3 className="text-2xl font-bold text-gray-800 dark:text-white mb-8">Напишите нам</h3>
               
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                     Ваше имя
                   </label>
                   <input
@@ -162,13 +162,13 @@ const Contact = () => {
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors"
+                    className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors"
                     placeholder="Введите ваше имя"
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label htmlFor="phone" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                     Телефон
                   </label>
                   <input
@@ -178,13 +178,13 @@ const Contact = () => {
                     value={formData.phone}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors"
+                    className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors"
                     placeholder="+7 (___) ___-____"
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label htmlFor="message" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                     Сообщение
                   </label>
                   <textarea
@@ -194,7 +194,7 @@ const Contact = () => {
                     onChange={handleChange}
                     required
                     rows={5}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors resize-none"
+                    className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors resize-none"
                     placeholder="Расскажите о ваших пожеланиях..."
                   />
                 </div>
