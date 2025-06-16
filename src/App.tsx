@@ -2,11 +2,11 @@ import React, { useEffect } from 'react';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import Gallery from './components/Gallery';
-import Excursions from './components/Excursions';
 import Location from './components/Location';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
+import ThemeToggle from './components/ThemeToggle';
 
 function App() {
   useEffect(() => {
@@ -32,17 +32,17 @@ function App() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white dark:bg-gray-900 transition-colors duration-300">
       <Header />
       <main>
         <Hero />
         <Gallery />
-        <Excursions />
         <Location />
         <Contact />
       </main>
       <Footer />
       <ScrollToTop />
+      <ThemeToggle />
     </div>
   );
 }
