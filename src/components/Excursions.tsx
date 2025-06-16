@@ -186,41 +186,7 @@ const Excursions = () => {
           </motion.div>
         </div>
 
-        {/* Call to Action */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-          className="text-center bg-white rounded-2xl shadow-lg p-8"
-        >
-          <h3 className="text-2xl font-bold text-gray-800 mb-4">
-            Готовы к незабываемому путешествию?
-          </h3>
-          <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
-            Свяжитесь с нами для бронирования экскурсий или получения дополнительной информации. 
-            Мы поможем составить идеальный маршрут для вашего отдыха.
-          </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-4">
-            <a
-              href="https://wa.me/7840123456?text=Здравствуйте! Интересуют экскурсии по Абхазии."
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-green-500 text-white px-8 py-3 rounded-lg font-semibold shadow-lg hover:shadow-xl hover:bg-green-600 transition-all duration-200"
-            >
-              Написать в WhatsApp
-            </a>
-            <button
-              onClick={() => {
-                const element = document.getElementById('contact');
-                if (element) element.scrollIntoView({ behavior: 'smooth' });
-              }}
-              className="bg-gray-100 text-gray-700 px-8 py-3 rounded-lg font-semibold shadow-lg hover:shadow-xl hover:bg-gray-200 transition-all duration-200"
-            >
-              Связаться с нами
-            </button>
-          </div>
-        </motion.div>
+
       </div>
     </section>
   );
