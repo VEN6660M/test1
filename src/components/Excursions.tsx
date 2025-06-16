@@ -84,7 +84,7 @@ const Excursions = () => {
           >
             <div className="relative rounded-2xl overflow-hidden shadow-lg">
               <img
-                src="https://images.pexels.com/photos/116675/pexels-photo-116675.jpeg?auto=compress&cs=tinysrgb&w=800"
+                src="https://web.telegram.org/1870e017-480f-412d-84d6-cf336ad1c1f5?auto=compress&cs=tinysrgb&w=800"
                 alt="Комфортабельный автомобиль для экскурсий"
                 className="w-full h-96 object-cover"
               />
