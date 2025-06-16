@@ -51,7 +51,7 @@ const Header = () => {
               <span className="text-white font-bold text-lg">AH</span>
             </div>
             <div className="min-w-0">
-              <h1 className="text-lg sm:text-xl font-bold text-gray-800 dark:text-white truncate">Абхазия Отели</h1>
+              <h1 className="text-lg sm:text-xl font-bold text-gray-800 dark:text-white truncate">Гостевой дом «Вартан»</h1>
               <p className="text-xs text-gray-600 dark:text-gray-400 hidden sm:block">Райский отдых у моря</p>
             </div>
           </motion.div>
