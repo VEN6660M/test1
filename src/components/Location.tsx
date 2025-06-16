@@ -183,7 +183,7 @@ const Location = () => {
           <div className="text-center mb-12">
             <h3 className="text-3xl font-bold text-gray-800 mb-4">Наш транспорт</h3>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Предоставляем комфортабельный трансфер и экскурсионные поездки на современных автомобилях
+              Предоставляем комфортабельный трансфер на современных автомобилях
             </p>
           </div>
 
@@ -197,15 +197,15 @@ const Location = () => {
             >
               <div className="relative rounded-2xl overflow-hidden shadow-lg">
                 <img
-                  src="https://images.pexels.com/photos/116675/pexels-photo-116675.jpeg?auto=compress&cs=tinysrgb&w=800"
-                  alt="Комфортабельный автомобиль"
+                  src="https://media.discordapp.net/attachments/1247239991088648223/1383975677275144262/1870e017-480f-412d-84d6-cf336ad1c1f5.jpg?ex=6850bf4a&is=684f6dca&hm=c5a1a0ba09a5b1a80b031182efa594b0c7b6105aa48055fcb5e51993e706da7a&=&format=webp&width=998&height=666"
+                  alt="Комфортабельный автомобиль для трансфера"
                   className="w-full h-80 object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end">
                   <div className="p-6 text-white">
-                    <h4 className="text-xl font-bold mb-2">Mercedes-Benz Sprinter</h4>
+                    <h4 className="text-xl font-bold mb-2">Комфортабельный транспорт</h4>
                     <p className="text-sm opacity-90">
-                      Комфортабельный микроавтобус для групповых поездок и экскурсий
+                      Современные автомобили с кондиционером для вашего комфорта
                     </p>
                   </div>
                 </div>

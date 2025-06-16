@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
-import { Phone, Mail, MessageCircle, Clock, MapPin, Send } from 'lucide-react';
+import { Phone, MessageCircle, Clock, MapPin, Send } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
     name: '',
-    email: '',
     phone: '',
     message: ''
   });
@@ -14,12 +13,19 @@ const Contact = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Здесь бы была логика отправки формы
+    
+    // Формируем сообщение для WhatsApp
+    const message = `Здравствуйте! Меня зовут ${formData.name}.%0A%0AТелефон: ${formData.phone}%0A%0AСообщение: ${formData.message}`;
+    const whatsappUrl = `https://wa.me/79993601089?text=${message}`;
+    
+    // Открываем WhatsApp
+    window.open(whatsappUrl, '_blank');
+    
     setShowToast(true);
     setTimeout(() => setShowToast(false), 3000);
     
     // Очистка формы
-    setFormData({ name: '', email: '', phone: '', message: '' });
+    setFormData({ name: '', phone: '', message: '' });
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -33,22 +39,15 @@ const Contact = () => {
     {
       icon: Phone,
       title: 'Телефон',
-      value: '+7 (840) 123-456',
+      value: '+7 (999) 360-10-89',
       color: 'bg-blue-500'
     },
     {
       icon: MessageCircle,
       title: 'WhatsApp',
-      value: '+7 (840) 123-456',
-      link: 'https://wa.me/7840123456?text=Здравствуйте! Интересует бронирование номера.',
+      value: '+7 (999) 360-10-89',
+      link: 'https://wa.me/79993601089?text=Здравствуйте! Интересует бронирование номера.',
       color: 'bg-green-500'
-    },
-    {
-      icon: Mail,
-      title: 'Email',
-      value: 'info@abkhazia-hotels.ru',
-      link: 'mailto:info@abkhazia-hotels.ru',
-      color: 'bg-red-500'
     },
     {
       icon: MapPin,
@@ -152,52 +151,35 @@ const Contact = () => {
               <h3 className="text-2xl font-bold text-gray-800 mb-8">Напишите нам</h3>
               
               <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid sm:grid-cols-2 gap-6">
-                  <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
-                      Ваше имя
-                    </label>
-                    <input
-                      type="text"
-                      id="name"
-                      name="name"
-                      value={formData.name}
-                      onChange={handleChange}
-                      required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors"
-                      placeholder="Введите ваше имя"
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
-                      Телефон
-                    </label>
-                    <input
-                      type="tel"
-                      id="phone"
-                      name="phone"
-                      value={formData.phone}
-                      onChange={handleChange}
-                      required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors"
-                      placeholder="+7 (___) ___-____"
-                    />
-                  </div>
-                </div>
-
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
-                    Email
+                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+                    Ваше имя
                   </label>
                   <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    value={formData.email}
+                    type="text"
+                    id="name"
+                    name="name"
+                    value={formData.name}
                     onChange={handleChange}
                     required
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors"
-                    placeholder="your@email.com"
+                    placeholder="Введите ваше имя"
+                  />
+                </div>
+
+                <div>
+                  <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
+                    Телефон
+                  </label>
+                  <input
+                    type="tel"
+                    id="phone"
+                    name="phone"
+                    value={formData.phone}
+                    onChange={handleChange}
+                    required
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors"
+                    placeholder="+7 (___) ___-____"
                   />
                 </div>
 
@@ -224,7 +206,7 @@ const Contact = () => {
                   className="w-full bg-gradient-to-r from-primary-500 to-primary-600 text-white py-4 px-6 rounded-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-200 flex items-center justify-center space-x-2"
                 >
                   <Send size={20} />
-                  <span>Отправить сообщение</span>
+                  <span>Отправить в WhatsApp</span>
                 </motion.button>
               </form>
             </div>
@@ -243,7 +225,7 @@ const Contact = () => {
               <div className="w-6 h-6 bg-white rounded-full flex items-center justify-center">
                 <span className="text-green-500 text-sm font-bold">✓</span>
               </div>
-              <span className="font-medium">Сообщение отправлено!</span>
+              <span className="font-medium">Переходим в WhatsApp!</span>
             </div>
           </motion.div>
         )}

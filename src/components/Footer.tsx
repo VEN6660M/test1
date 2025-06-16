@@ -1,5 +1,5 @@
 import React from 'react';
-import { Phone, Mail, MapPin, MessageCircle, Clock } from 'lucide-react';
+import { Phone, MapPin, Clock } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const Footer = () => {
@@ -8,14 +8,13 @@ const Footer = () => {
   const quickLinks = [
     { name: 'Главная', href: '#hero' },
     { name: 'Галерея', href: '#gallery' },
-    { name: 'Экскурсии', href: '#excursions' },
+    { name: 'Расположение', href: '#location' },
     { name: 'Контакты', href: '#contact' },
   ];
 
   const services = [
     'Бронирование номеров',
     'Трансфер из аэропорта',
-    'Экскурсионные туры',
     'Прокат автомобилей',
     'Ресторан и бар',
     'Конференц-зал'
@@ -52,18 +51,6 @@ const Footer = () => {
               Мы предоставляем лучший сервис для незабываемого отдыха в самом сердце Абхазии. 
               Комфорт, красота природы и гостеприимство ждут вас.
             </p>
-            <div className="flex space-x-4">
-              <motion.a
-                href="https://wa.me/7840123456"
-                target="_blank"
-                rel="noopener noreferrer"
-                whileHover={{ scale: 1.1 }}
-                className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-primary-500 transition-colors"
-                aria-label="WhatsApp"
-              >
-                <MessageCircle size={20} />
-              </motion.a>
-            </div>
           </motion.div>
 
           {/* Quick Links */}
@@ -124,13 +111,7 @@ const Footer = () => {
               </div>
               <div className="flex items-center space-x-3">
                 <Phone className="w-5 h-5 text-primary-400" />
-                <span className="text-gray-400">+7 (840) 123-456</span>
-              </div>
-              <div className="flex items-center space-x-3">
-                <Mail className="w-5 h-5 text-primary-400" />
-                <a href="mailto:info@abkhazia-hotels.ru" className="text-gray-400 hover:text-white transition-colors">
-                  info@abkhazia-hotels.ru
-                </a>
+                <span className="text-gray-400">+7 (999) 360-10-89</span>
               </div>
               <div className="flex items-start space-x-3">
                 <Clock className="w-5 h-5 text-primary-400 mt-0.5" />

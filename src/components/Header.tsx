@@ -26,7 +26,6 @@ const Header = () => {
   const menuItems = [
     { id: 'hero', label: 'Главная' },
     { id: 'gallery', label: 'Галерея' },
-    { id: 'excursions', label: 'Экскурсии' },
     { id: 'location', label: 'Расположение' },
     { id: 'contact', label: 'Контакты' },
   ];
@@ -75,7 +74,7 @@ const Header = () => {
           <div className="hidden xl:flex items-center space-x-4 flex-shrink-0">
             <div className="flex items-center space-x-2 text-gray-700">
               <Phone size={16} />
-              <span className="text-sm font-medium whitespace-nowrap">+7 (840) 123-456</span>
+              <span className="text-sm font-medium whitespace-nowrap">+7 (999) 360-10-89</span>
             </div>
             <div className="w-px h-6 bg-gray-300"></div>
             <div className="flex items-center space-x-1 text-gray-600">
@@ -117,7 +116,7 @@ const Header = () => {
                 <div className="pt-4 border-t border-gray-200">
                   <div className="flex items-center space-x-2 text-gray-700 mb-2">
                     <Phone size={16} />
-                    <span>+7 (840) 123-456</span>
+                    <span>+7 (999) 360-10-89</span>
                   </div>
                   <div className="flex items-center space-x-2 text-gray-600">
                     <MapPin size={16} />
