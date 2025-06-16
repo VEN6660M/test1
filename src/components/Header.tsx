@@ -18,7 +18,8 @@ const Header = () => {
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
-      const headerHeight = document.querySelector('header')?.offsetHeight || 80;
+      const header = document.querySelector('header');
+      const headerHeight = header?.offsetHeight || 80;
       const elementPosition = element.offsetTop - headerHeight;
       
       window.scrollTo({
@@ -32,7 +33,7 @@ const Header = () => {
   const menuItems = [
     { id: 'hero', label: 'Главная' },
     { id: 'gallery', label: 'Галерея' },
-    { id: 'transport', label: 'Транспорт' },
+    { id: 'location', label: 'Транспорт' },
     { id: 'location', label: 'Расположение' },
     { id: 'contact', label: 'Контакты' },
   ];
@@ -41,10 +42,9 @@ const Header = () => {
     <>
       <style jsx global>{`
         #hero {
-          scroll-margin-top: 80px;
           padding-top: 80px;
         }
-        #gallery, #transport, #location, #contact {
+        #hero, #gallery, #transport, #location, #contact {
           scroll-margin-top: 80px;
         }
       `}</style>
@@ -60,12 +60,12 @@ const Header = () => {
       >
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16 lg:h-20">
-            {/* Логотип */}
+            {/* Logo */}
             <motion.div
               whileHover={{ scale: 1.05 }}
               className="flex items-center space-x-2 sm:space-x-3 flex-shrink-0 min-w-0"
             >
-              <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg flex items-center justify-center flex-shrink-0">
+              <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br from-primary-400 to-primary-600 rounded-lg flex items-center justify-center flex-shrink-0">
                 <span className="text-white font-bold text-sm sm:text-lg">AH</span>
               </div>
               <div className="min-w-0">
@@ -78,23 +78,23 @@ const Header = () => {
               </div>
             </motion.div>
 
-            {/* Навигация для десктопа */}
+            {/* Desktop Navigation */}
             <nav className="hidden lg:flex items-center space-x-8">
               {menuItems.map((item) => (
                 <button
                   key={item.id}
                   onClick={() => scrollToSection(item.id)}
-                  className="text-gray-700 hover:text-blue-500 font-medium transition-colors duration-200 relative group whitespace-nowrap"
+                  className="text-gray-700 hover:text-primary-500 font-medium transition-colors duration-200 relative group whitespace-nowrap"
                 >
                   {item.label}
-                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-500 transition-all duration-200 group-hover:w-full"></span>
+                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary-500 transition-all duration-200 group-hover:w-full"></span>
                 </button>
               ))}
             </nav>
 
-            {/* Правая часть */}
-            <div className="flex items-center space-x-4">
-              {/* Контакты (десктоп) */}
+            {/* Right side controls */}
+            <div className="flex items-center space-x-2 sm:space-x-4">
+              {/* Contact Info - Desktop */}
               <div className="hidden xl:flex items-center space-x-4">
                 <div className="flex items-center space-x-2 text-gray-700">
                   <Phone size={16} />
@@ -107,7 +107,7 @@ const Header = () => {
                 </div>
               </div>
 
-              {/* Кнопка мобильного меню */}
+              {/* Mobile Menu Button */}
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
                 className="lg:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors flex-shrink-0"
@@ -123,7 +123,7 @@ const Header = () => {
           </div>
         </div>
 
-        {/* Мобильное меню */}
+        {/* Mobile Menu */}
         <AnimatePresence>
           {isMenuOpen && (
             <motion.div
@@ -139,7 +139,7 @@ const Header = () => {
                     <button
                       key={item.id}
                       onClick={() => scrollToSection(item.id)}
-                      className="text-left text-gray-700 hover:text-blue-500 font-medium py-2 transition-colors"
+                      className="text-left text-gray-700 hover:text-primary-500 font-medium py-2 transition-colors"
                     >
                       {item.label}
                     </button>
