@@ -65,9 +65,9 @@ const Hero = () => {
             transition={{ delay: 0.4, duration: 0.8 }}
             className="text-4xl sm:text-5xl lg:text-7xl font-bold mb-6"
           >
-            <span className="text-gray-800 dark:text-white">Отели</span>{' '}
+            <span className="text-gray-800 dark:text-white">Гостевой дом</span>{' '}
             <span className="bg-gradient-to-r from-primary-500 to-primary-600 bg-clip-text text-transparent">
-              Абхазии
+              «Вартан»
             </span>
           </motion.h1>
 
