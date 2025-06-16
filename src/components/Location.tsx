@@ -197,13 +197,13 @@ const Location = () => {
             >
               <div className="relative rounded-2xl overflow-hidden shadow-lg">
                 <img
-                  src="https://images.pexels.com/photos/116675/pexels-photo-116675.jpeg?auto=compress&cs=tinysrgb&w=800"
+                  src="https://media.discordapp.net/attachments/1247239991088648223/1383975677275144262/1870e017-480f-412d-84d6-cf336ad1c1f5.jpg?ex=6850bf4a&is=684f6dca&hm=c5a1a0ba09a5b1a80b031182efa594b0c7b6105aa48055fcb5e51993e706da7a&=&format=webp&width=998&height=666"
                   alt="Комфортабельный автомобиль"
                   className="w-full h-80 object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end">
                   <div className="p-6 text-white">
-                    <h4 className="text-xl font-bold mb-2">Mercedes-Benz Sprinter</h4>
+                    <h4 className="text-xl font-bold mb-2"></h4>
                     <p className="text-sm opacity-90">
                       Комфортабельный микроавтобус для групповых поездок и экскурсий
                     </p>
