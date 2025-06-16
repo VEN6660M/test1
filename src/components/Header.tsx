@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X, Phone, MapPin } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
-import ThemeToggle from './ThemeToggle';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -19,12 +18,15 @@ const Header = () => {
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
-      // Учитываем высоту хедера при скролле
-      const headerHeight = document.querySelector('header')?.clientHeight || 80;
-      const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
+      // Получаем текущую высоту хедера
+      const header = document.querySelector('header');
+      const headerHeight = header ? header.offsetHeight : 80;
+      
+      // Вычисляем позицию с учетом хедера
+      const elementPosition = element.getBoundingClientRect().top + window.pageYOffset - headerHeight;
       
       window.scrollTo({
-        top: elementPosition - headerHeight,
+        top: elementPosition,
         behavior: 'smooth'
       });
       setIsMenuOpen(false);
@@ -41,10 +43,14 @@ const Header = () => {
 
   return (
     <>
-      {/* Добавляем padding-top к первому блоку, чтобы контент не перекрывался */}
+      {/* Добавляем отступ для первого блока */}
       <style jsx global>{`
         #hero {
+          scroll-margin-top: 80px;
           padding-top: 80px;
+        }
+        #gallery, #transport, #location, #contact {
+          scroll-margin-top: 80px;
         }
       `}</style>
 
@@ -64,7 +70,7 @@ const Header = () => {
               whileHover={{ scale: 1.05 }}
               className="flex items-center space-x-2 sm:space-x-3 flex-shrink-0 min-w-0"
             >
-              <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br from-primary-400 to-primary-600 rounded-lg flex items-center justify-center flex-shrink-0">
+              <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg flex items-center justify-center flex-shrink-0">
                 <span className="text-white font-bold text-sm sm:text-lg">AH</span>
               </div>
               <div className="min-w-0">
@@ -83,16 +89,16 @@ const Header = () => {
                 <button
                   key={item.id}
                   onClick={() => scrollToSection(item.id)}
-                  className="text-gray-700 dark:text-gray-300 hover:text-primary-500 dark:hover:text-primary-400 font-medium transition-colors duration-200 relative group whitespace-nowrap"
+                  className="text-gray-700 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 font-medium transition-colors duration-200 relative group whitespace-nowrap"
                 >
                   {item.label}
-                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary-500 transition-all duration-200 group-hover:w-full"></span>
+                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-500 transition-all duration-200 group-hover:w-full"></span>
                 </button>
               ))}
             </nav>
 
             {/* Правая часть с контактами и кнопкой меню */}
-            <div className="flex items-center space-x-2 sm:space-x-4">
+            <div className="flex items-center space-x-4">
               {/* Контакты (только для десктопа) */}
               <div className="hidden xl:flex items-center space-x-4">
                 <div className="flex items-center space-x-2 text-gray-700 dark:text-gray-300">
@@ -106,15 +112,10 @@ const Header = () => {
                 </div>
               </div>
 
-              {/* Переключатель темы */}
-              <div className="flex-shrink-0">
-                <ThemeToggle />
-              </div>
-
               {/* Кнопка мобильного меню */}
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className="lg:hidden p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors flex-shrink-0"
+                className="lg:hidden p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
                 aria-label="Меню"
               >
                 {isMenuOpen ? (
@@ -142,8 +143,11 @@ const Header = () => {
                   {menuItems.map((item) => (
                     <button
                       key={item.id}
-                      onClick={() => scrollToSection(item.id)}
-                      className="text-left text-gray-700 dark:text-gray-300 hover:text-primary-500 dark:hover:text-primary-400 font-medium py-2 transition-colors"
+                      onClick={() => {
+                        scrollToSection(item.id);
+                        setIsMenuOpen(false);
+                      }}
+                      className="text-left text-gray-700 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 font-medium py-2 transition-colors"
                     >
                       {item.label}
                     </button>
