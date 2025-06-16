@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 import Header from './components/Header';
 import Hero from './components/Hero';
-import Rooms from './components/Rooms';
 import Gallery from './components/Gallery';
+import Excursions from './components/Excursions';
 import Location from './components/Location';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
@@ -36,8 +36,8 @@ function App() {
       <Header />
       <main>
         <Hero />
-        <Rooms />
         <Gallery />
+        <Excursions />
         <Location />
         <Contact />
       </main>

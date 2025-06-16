@@ -1,5 +1,5 @@
 import React from 'react';
-import { Phone, Mail, MapPin, MessageCircle, Instagram, Facebook, Clock } from 'lucide-react';
+import { Phone, Mail, MapPin, MessageCircle, Clock } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const Footer = () => {
@@ -7,8 +7,8 @@ const Footer = () => {
 
   const quickLinks = [
     { name: 'Главная', href: '#hero' },
-    { name: 'Номера', href: '#rooms' },
     { name: 'Галерея', href: '#gallery' },
+    { name: 'Экскурсии', href: '#excursions' },
     { name: 'Контакты', href: '#contact' },
   ];
 
@@ -19,12 +19,6 @@ const Footer = () => {
     'Прокат автомобилей',
     'Ресторан и бар',
     'Конференц-зал'
-  ];
-
-  const socialLinks = [
-    { icon: Instagram, href: '#', name: 'Instagram' },
-    { icon: Facebook, href: '#', name: 'Facebook' },
-    { icon: MessageCircle, href: 'https://wa.me/7840123456', name: 'WhatsApp' },
   ];
 
   const scrollToSection = (sectionId: string) => {
@@ -59,19 +53,16 @@ const Footer = () => {
               Комфорт, красота природы и гостеприимство ждут вас.
             </p>
             <div className="flex space-x-4">
-              {socialLinks.map((social, index) => (
-                <motion.a
-                  key={index}
-                  href={social.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  whileHover={{ scale: 1.1 }}
-                  className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-primary-500 transition-colors"
-                  aria-label={social.name}
-                >
-                  <social.icon size={20} />
-                </motion.a>
-              ))}
+              <motion.a
+                href="https://wa.me/7840123456"
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ scale: 1.1 }}
+                className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-primary-500 transition-colors"
+                aria-label="WhatsApp"
+              >
+                <MessageCircle size={20} />
+              </motion.a>
             </div>
           </motion.div>
 
@@ -133,9 +124,7 @@ const Footer = () => {
               </div>
               <div className="flex items-center space-x-3">
                 <Phone className="w-5 h-5 text-primary-400" />
-                <a href="tel:+7840123456" className="text-gray-400 hover:text-white transition-colors">
-                  +7 (840) 123-456
-                </a>
+                <span className="text-gray-400">+7 (840) 123-456</span>
               </div>
               <div className="flex items-center space-x-3">
                 <Mail className="w-5 h-5 text-primary-400" />
