@@ -43,13 +43,14 @@ const Transport = () => {
         </motion.div>
 
         <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            {/* Car Image */}
+          <div className="grid lg:grid-cols-2 gap-12 items-start">
+            {/* Car Image and Button */}
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
+              className="space-y-6"
             >
               <div className="relative rounded-2xl overflow-hidden shadow-lg">
                 <img
@@ -66,6 +67,25 @@ const Transport = () => {
                   </div>
                 </div>
               </div>
+
+              {/* Contact Button */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.4 }}
+                viewport={{ once: true }}
+                className="text-center"
+              >
+                <a
+                  href="https://wa.me/79993601089?text=Здравствуйте! Интересует трансфер."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center space-x-2 bg-gradient-to-r from-primary-500 to-primary-600 text-white px-8 py-4 rounded-xl font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200"
+                >
+                  <Car className="w-5 h-5" />
+                  <span>Заказать трансфер</span>
+                </a>
+              </motion.div>
             </motion.div>
 
             {/* Features and Services */}
@@ -118,25 +138,6 @@ const Transport = () => {
                   </li>
                 </ul>
               </div>
-
-              {/* Contact Button */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.4 }}
-                viewport={{ once: true }}
-                className="text-center"
-              >
-                <a
-                  href="https://wa.me/79993601089?text=Здравствуйте! Интересует трансфер."
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center space-x-2 bg-gradient-to-r from-primary-500 to-primary-600 text-white px-8 py-4 rounded-xl font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200"
-                >
-                  <Car className="w-5 h-5" />
-                  <span>Заказать трансфер</span>
-                </a>
-              </motion.div>
             </motion.div>
           </div>
         </div>
